@@ -47,9 +47,6 @@ function SearchProvider({ children }) {
       .catch((err) => {
         console.error("API ERROR", err.message);
       });
-
-    console.log(movieList);
-    console.log(seriesList);
   };
 
   //? CONTEXT VALUE
