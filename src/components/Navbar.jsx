@@ -20,7 +20,7 @@ export default function Navbar() {
               onChange={(e) => setSearchedInput(e.target.value)}
               //
             />
-            <button className="btn btn-outline-success">Search</button>
+            <button className="btn btn-outline-info">Search</button>
           </form>
         </div>
       </nav>

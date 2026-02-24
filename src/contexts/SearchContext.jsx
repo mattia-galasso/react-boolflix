@@ -37,12 +37,16 @@ function SearchProvider({ children }) {
     e.preventDefault();
 
     /* PROMISE ALL MULTIPLE API REQUEST */
-    Promise.all([getMovies(searchedInput), getSeries(searchedInput)]).then(
-      ([moviesRespose, seriesResponse]) => {
+    Promise.all([getMovies(searchedInput), getSeries(searchedInput)])
+      //
+      .then(([moviesRespose, seriesResponse]) => {
         setMovieList(moviesRespose.data.results);
         setSeriesList(seriesResponse.data.results);
-      },
-    );
+      })
+      //
+      .catch((err) => {
+        console.error("API ERROR", err.message);
+      });
 
     console.log(movieList);
     console.log(seriesList);
@@ -53,6 +57,8 @@ function SearchProvider({ children }) {
     searchedInput,
     setSearchedInput,
     handleSearchSubmit,
+    movieList,
+    seriesList,
   };
 
   return (
