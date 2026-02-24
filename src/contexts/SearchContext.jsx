@@ -3,14 +3,13 @@ import { createContext, useState, useContext } from "react";
 const SearchContext = createContext();
 
 function SearchProvider({ children }) {
+  //* CHANGE SEARCH INPUT
+  const [searchedInput, setSearchedInput] = useState("Harry");
+
   //* HANDLE SEARCH FORM SUBMIT
   const handleSearchSubmit = (e) => {
     e.preventDefault();
-    console.log(searchedInput);
   };
-
-  //* CHANGE SEARCH INPUT
-  const [searchedInput, setSearchedInput] = useState("Harry");
 
   //? CONTEXT VALUE
   const contextValue = {
