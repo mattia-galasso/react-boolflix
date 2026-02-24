@@ -1,14 +1,15 @@
-import { useState } from "react";
+import { useSearchFunction } from "../contexts/SearchContext";
 
 export default function Navbar() {
-  const [searchedInput, setSearchedInput] = useState("");
+  const { searchedInput, setSearchedInput, handleSearchSubmit } =
+    useSearchFunction();
 
   return (
     <>
       <nav className="navbar bg-body-tertiary">
         <div className="container-fluid">
           <a className="navbar-brand">Navbar</a>
-          <form className="d-flex" role="search">
+          <form className="d-flex" role="search" onSubmit={handleSearchSubmit}>
             <input
               className="form-control me-2"
               type="search"
