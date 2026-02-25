@@ -5,9 +5,15 @@ import fr from "../assets/img/fr.png";
 import it from "../assets/img/it.png";
 import ja from "../assets/img/ja.png";
 import undefined from "../assets/img/undefined.png";
+import posterNull from "../assets/img/poster_null.png";
 
 export default function HomePage() {
   const { movieList, seriesList } = useSearchFunction();
+
+  const posterImage = (path) => {
+    if (path === null) return posterNull;
+    else return "https://image.tmdb.org/t/p/w342" + path;
+  };
 
   const languageFlag = (language) => {
     if (language === "en") return en;
@@ -23,6 +29,9 @@ export default function HomePage() {
 
       {movieList.map((movie) => (
         <ul key={movie.id}>
+          <li>
+            <img src={posterImage(movie.poster_path)} alt={movie.title} />
+          </li>
           <li>{movie.title}</li>
           <li>{movie.original_title}</li>
           <li>
@@ -39,6 +48,9 @@ export default function HomePage() {
       <h1>TV SERIES</h1>
       {seriesList.map((series) => (
         <ul key={series.id}>
+          <li>
+            <img src={posterImage(series.poster_path)} alt={series.name} />
+          </li>
           <li>{series.name}</li>
           <li>{series.original_name}</li>
           <li>
