@@ -1,3 +1,77 @@
+/*
+  GENERAL RULES  
+*/
+
+.bg-grey {
+  background-color: #434343;
+  min-height: calc(100vh - 56.8px);
+}
+
+/* NAVBAR */
+.titleNavbar {
+  text-decoration: none;
+  font-size: 1.7rem;
+  font-weight: 500;
+  letter-spacing: 2px;
+  color: red;
+  cursor: pointer;
+}
+
+/* CARDS */
+.main-box {
+  padding: 2rem 4rem;
+}
+
+.cardsBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.cardElement {
+  height: 515px;
+  background-color: black;
+  position: relative;
+  border: 2px solid white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.cardElement ul {
+  display: none;
+  list-style-type: none;
+}
+
+.cardElement:hover .posterImage {
+  opacity: 0;
+}
+
+.cardElement:hover ul {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  color: white;
+  display: block;
+  margin: 2rem 0;
+  padding: 0.8rem 1rem;
+  text-align: left;
+  overflow-y: auto;
+}
+
+.cardTitle {
+  font-size: 17px;
+  font-weight: 700;
+  margin-top: 0.9rem;
+  margin-bottom: 0;
+}
+
 .flagImage {
   width: 4rem;
+}
+
+.starsColor {
+  color: #ffbd00;
 }

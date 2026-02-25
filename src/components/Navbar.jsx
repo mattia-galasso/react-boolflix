@@ -6,9 +6,9 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="navbar bg-body-tertiary">
+      <nav className="navbar bg-black">
         <div className="container-fluid">
-          <a className="navbar-brand">Navbar</a>
+          <a className="titleNavbar">BOOLFLIX</a>
           <form className="d-flex" role="search" onSubmit={handleSearchSubmit}>
             <input
               className="form-control me-2"
@@ -20,7 +20,7 @@ export default function Navbar() {
               onChange={(e) => setSearchedInput(e.target.value)}
               //
             />
-            <button className="btn btn-outline-info">Search</button>
+            <button className="btn btn-outline-light">Search</button>
           </form>
         </div>
       </nav>

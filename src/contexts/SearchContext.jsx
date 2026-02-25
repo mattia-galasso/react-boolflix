@@ -11,6 +11,10 @@ function SearchProvider({ children }) {
   const [movieList, setMovieList] = useState([]);
   const [seriesList, setSeriesList] = useState([]);
 
+  /*
+  ! STATE SE SI STA CERCANDO (isSearching) 
+  */
+
   //* MOVIE API FUNCTION
   function getMovies(query) {
     /* API MOVIE URL */

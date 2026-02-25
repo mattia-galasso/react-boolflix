@@ -1,68 +1,26 @@
+import Card from "../components/Card";
 import { useSearchFunction } from "../contexts/SearchContext";
 
-import en from "../assets/img/en.png";
-import fr from "../assets/img/fr.png";
-import it from "../assets/img/it.png";
-import ja from "../assets/img/ja.png";
-import undefined from "../assets/img/undefined.png";
-import posterNull from "../assets/img/poster_null.png";
-
 export default function HomePage() {
-  const { movieList, seriesList } = useSearchFunction();
-
-  const posterImage = (path) => {
-    if (path === null) return posterNull;
-    else return "https://image.tmdb.org/t/p/w342" + path;
-  };
-
-  const languageFlag = (language) => {
-    if (language === "en") return en;
-    if (language === "fr") return fr;
-    if (language === "it") return it;
-    if (language === "ja") return ja;
-    else return undefined;
-  };
+  const { movieList, seriesList, searchedInput } = useSearchFunction();
 
   return (
     <>
-      <h1>MOVIES</h1>
+      <div className="bg-grey">
+        <div className="main-box">
+          <div className="ps-4 pb-4">
+            <h2 className="text-light">MOVIES</h2>
+            <h5 className="text-light">Results for: {searchedInput}</h5>
+          </div>
+          <Card elements={movieList} />
 
-      {movieList.map((movie) => (
-        <ul key={movie.id}>
-          <li>
-            <img src={posterImage(movie.poster_path)} alt={movie.title} />
-          </li>
-          <li>{movie.title}</li>
-          <li>{movie.original_title}</li>
-          <li>
-            <img
-              src={languageFlag(movie.original_language)}
-              alt={movie.original_language}
-              className="flagImage"
-            />
-          </li>
-          <li>{movie.vote_average}</li>
-        </ul>
-      ))}
-
-      <h1>TV SERIES</h1>
-      {seriesList.map((series) => (
-        <ul key={series.id}>
-          <li>
-            <img src={posterImage(series.poster_path)} alt={series.name} />
-          </li>
-          <li>{series.name}</li>
-          <li>{series.original_name}</li>
-          <li>
-            <img
-              src={languageFlag(series.original_language)}
-              alt={series.original_language}
-              className="flagImage"
-            />
-          </li>
-          <li>{series.vote_average}</li>
-        </ul>
-      ))}
+          <div className="px-4 py-4">
+            <h2 className="text-light">TV SERIES</h2>
+            <h5 className="text-light">Results for: {searchedInput}</h5>
+          </div>
+          <Card elements={seriesList} />
+        </div>
+      </div>
     </>
   );
 }
