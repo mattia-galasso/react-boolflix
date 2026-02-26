@@ -58,7 +58,6 @@ GENERAL RULES
 .cardElement ul {
   display: none;
   list-style-type: none;
-  opacity: 0;
 }
 
 .posterImage {
@@ -66,7 +65,7 @@ GENERAL RULES
 }
 
 .cardElement:hover .posterImage {
-  opacity: 0;
+  opacity: 0.1;
 }
 
 .cardElement:hover ul {
@@ -79,7 +78,6 @@ GENERAL RULES
   padding: 0.8rem 1rem;
   text-align: left;
   overflow-y: auto;
-  opacity: 1;
 }
 
 .cardTitle {
