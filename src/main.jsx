@@ -5,6 +5,9 @@ import { createRoot } from "react-dom/client";
 import "bootstrap/dist/css/bootstrap.min.css";
 import * as bootstrap from "bootstrap";
 
+/* BOOTSTRAP ICONS */
+import "bootstrap-icons/font/bootstrap-icons.min.css";
+
 /* Import Local Assets */
 import "./assets/css/index.css";
 

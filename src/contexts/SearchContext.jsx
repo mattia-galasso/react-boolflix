@@ -7,13 +7,11 @@ const APIKey = "e1bf65829171b3ed59447bd3240e2bcf";
 
 function SearchProvider({ children }) {
   //* useSTATE CONSTANT
-  const [searchedInput, setSearchedInput] = useState("Harry");
+  const [searchedInput, setSearchedInput] = useState("");
   const [movieList, setMovieList] = useState([]);
   const [seriesList, setSeriesList] = useState([]);
-
-  /*
-  ! STATE SE SI STA CERCANDO (isSearching) 
-  */
+  const [isSearching, setIsSearching] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   //* MOVIE API FUNCTION
   function getMovies(query) {
@@ -40,12 +38,16 @@ function SearchProvider({ children }) {
   const handleSearchSubmit = (e) => {
     e.preventDefault();
 
+    setIsSearching(true);
+    setIsLoading(true);
+
     /* PROMISE ALL MULTIPLE API REQUEST */
     Promise.all([getMovies(searchedInput), getSeries(searchedInput)])
       //
       .then(([moviesRespose, seriesResponse]) => {
         setMovieList(moviesRespose.data.results);
         setSeriesList(seriesResponse.data.results);
+        setIsLoading(false);
       })
       //
       .catch((err) => {
@@ -60,6 +62,8 @@ function SearchProvider({ children }) {
     handleSearchSubmit,
     movieList,
     seriesList,
+    isSearching,
+    isLoading,
   };
 
   return (

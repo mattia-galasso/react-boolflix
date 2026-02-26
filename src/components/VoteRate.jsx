@@ -1,6 +1,3 @@
-/* BOOTSTRAP ICONS */
-import "bootstrap-icons/font/bootstrap-icons.min.css";
-
 export default function VoteRate({ vote }) {
   /* VOTE STARS */
   const voteStars = (vote) => {

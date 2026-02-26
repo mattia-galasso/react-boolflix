@@ -1,10 +1,24 @@
 /*
-  GENERAL RULES  
+GENERAL RULES  
 */
 
 .bg-grey {
   background-color: #434343;
   min-height: calc(100vh - 56.8px);
+}
+
+/* WELCOME */
+
+.welcome-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15rem;
+}
+
+.icon-arrow {
+  color: white;
+  font-size: 18rem;
 }
 
 /* NAVBAR */
@@ -39,10 +53,16 @@
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  box-shadow: 0px 0px 13px 8px;
 }
 .cardElement ul {
   display: none;
   list-style-type: none;
+  opacity: 0;
+}
+
+.posterImage {
+  transition: opacity 0.4s ease;
 }
 
 .cardElement:hover .posterImage {
@@ -59,6 +79,7 @@
   padding: 0.8rem 1rem;
   text-align: left;
   overflow-y: auto;
+  opacity: 1;
 }
 
 .cardTitle {
@@ -74,4 +95,16 @@
 
 .starsColor {
   color: #ffbd00;
+}
+
+/* LOADING */
+.loading-box {
+  padding: 7rem 0;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 1.4rem;
+  font-weight: 600;
 }
